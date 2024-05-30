@@ -8,6 +8,7 @@
   --background-color: #fdf9f8;
   --almond: #f1e3d3;
   --desert-sand: #ddbea9;
+  --off-white: #f1efed;
   --ash-grey: #b7b7a4;
   --ash-green: #6b705c;
 
@@ -176,8 +177,9 @@ header nav ul li a:hover {
   grid-template-columns: 1fr 1fr; /* Defines two columns in the grid layout, the first taking 1 fraction of the available space and the second having a fixed width of 500 pixels */
   align-items: center;
   justify-self: center;
+  gap: 2rem;
   margin: 0 auto;
-  min-height: 80vh;
+  min-height: 90vh;
   z-index: 1;
   width: 100%;
   max-width: 1400px;
@@ -207,7 +209,6 @@ header nav ul li a:hover {
   max-width: 100%;
   height: auto;
   display: block;
-  border-radius: 15px;
 }
 
 @media (max-width: 1150px) {
@@ -241,6 +242,197 @@ header nav ul li a:hover {
   }
 }
 
+/*=============== WORK SECTION ===============*/
+.projects {
+  background-color: white;
+}
+
+.section-heading {
+  font-size: var(--heading);
+  font-family: var(--playfair-display);
+  padding: 50px 0 50px 100px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding-bottom: 50px;
+}
+
+.grid-item {
+  display: flex;
+  gap: 5rem;
+  padding: 3rem;
+  background-color: var(--off-white);
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeIn 0.3s;
+  border-radius: 15px;
+  margin: 0 100px;
+}
+
+@media (max-width: 1200px) {
+  .grid-item {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .image-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.grid-item:hover {
+  transform: scale(1.03);
+  box-shadow: 5px 5px 20px rgba(51, 34, 33, 0.1);
+}
+
+.grid-item h3 {
+  font-size: var(--subheading);
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.grid-item p {
+  margin: 15px 0;
+  line-height: 24px;
+}
+
+.grid-item p span {
+  font-weight: 600;
+}
+
+.grid-item img {
+  height: 20rem;
+  border-radius: 10px;
+}
+
+.grid-item a {
+  background: var(--ash-green);
+  color: var(--off-white);
+  padding: 20px 30px;
+  margin: 20px;
+  text-align: center;
+  display: block;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.grid-item a:hover {
+  background: var(--ash-grey);
+  color: var(--ash-green);
+  transition: 0.3s;
+}
+
+.grid-item a:not(:hover) {
+  background: var(--ash-green);
+  color: var(--off-white);
+  transition: 0.3s;
+}
+
+@media (max-width: 800px) {
+  .section-heading {
+    padding: 10% 10%;
+  }
+
+  .grid-item {
+    margin: 0 5%;
+  }
+
+  .grid-item img {
+    height: 15rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .section-heading {
+    padding: 10% 5%;
+  }
+
+  .grid-item {
+    padding: 5%;
+  }
+
+  .grid-item img {
+    height: 11rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*=============== ABOUT SECTION ===============*/
+.about {
+  margin: 0 100px;
+}
+
+.about-wrapper {
+  display: flex;
+  gap: 2rem;
+}
+
+.about-wrapper p {
+  line-height: 24px;
+}
+
+.about-wrapper img {
+  width: 40%;
+  height: 40%;
+}
+
+@media (max-width: 992px) {
+  .about {
+    margin: 0 10%;
+  }
+
+  .about-wrapper {
+    flex-direction: column;
+  }
+
+  .about-wrapper img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .about {
+    margin: 0 5%;
+  }
+}
+
+/*=============== CONTACT SECTION ===============*/
+.contact {
+  margin: 0 100px 230px;
+}
+
+.contact p {
+  line-height: 24px;
+  margin-bottom: 20px;
+}
+
+.contact p i {
+  font-size: var(--subheading);
+}
+
+@media (max-width: 992px) {
+  .contact {
+    margin: 0 10% 230px;
+  }
+}
+
+@media (max-width: 500px) {
+  .contact {
+    margin: 0 5% 230px;
+  }
+}
+
 /*=============== FOOTER ===============*/
 .flex-container {
   display: flex;
@@ -258,8 +450,17 @@ header nav ul li a:hover {
 
 .flex-container div a {
   text-decoration: none;
-  color: var(--offwhite);
   letter-spacing: 1px;
+}
+
+.flex-container div a:hover {
+  color: var(--ash-green);
+  transition: 0.3s;
+}
+
+.flex-container div a:not(:hover) {
+  color: var(--text-color);
+  transition: 0.3s;
 }
 
 @media (max-width: 992px) {
