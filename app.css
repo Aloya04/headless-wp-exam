@@ -1,0 +1,273 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  --text-color: #2a180e;
+  --background-color: #fdf9f8;
+  --almond: #f1e3d3;
+  --desert-sand: #ddbea9;
+  --ash-grey: #b7b7a4;
+  --ash-green: #6b705c;
+
+  /*========== Font Family ==========*/
+  --playfair-display: "Playfair Display", serif;
+  --poppins: "Poppins", sans-serif;
+
+  /*========== Font Size ==========*/
+  --huge-heading: 3rem; /*48px*/
+  --heading: 2.25rem; /*36px*/
+  --subheading: 1.5rem; /*24px*/
+  --text: 1rem; /*16px*/
+}
+
+/*=============== BASE ===============*/
+/* Universal selector */
+* {
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  padding: 0;
+  margin: 0;
+  font-family: var(--poppins);
+  text-decoration: none;
+  color: inherit;
+  font-size: var(--text);
+  scroll-behavior: smooth; /* Enable smooth scrolling */
+  -moz-osx-font-smoothing: grayscale; /* For Firefox on macOS */
+  -webkit-font-smoothing: antialiased;
+}
+html {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/*=============== HEADER ===============*/
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-color);
+  transition: 0.6s;
+  padding: 30px 100px;
+  z-index: 1;
+}
+
+header .logo {
+  position: relative;
+  font-family: var(--playfair-display);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+header .logo:hover {
+  color: var(--ash-green);
+}
+
+header .icons {
+  position: absolute;
+  right: 5%;
+  cursor: pointer;
+  display: none;
+}
+
+header nav ul {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+header nav ul li {
+  position: relative;
+  list-style: none;
+}
+
+header nav ul li a {
+  position: relative;
+  margin: 0 30px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-weight: 500px;
+  transition: 0.3s;
+}
+
+header nav ul li a:hover {
+  color: var(--ash-green);
+}
+
+#check {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  header {
+    padding: 1.3rem 5%;
+  }
+
+  header .icons {
+    display: inline-flex;
+    transition: 0.6s;
+  }
+
+  #check:checked ~ .icons #menu-icon {
+    display: none;
+  }
+
+  header .icons #menu-icon {
+    font-size: 2rem;
+  }
+
+  header .icons #close-icon {
+    display: none;
+  }
+
+  #check:checked ~ .icons #close-icon {
+    display: block;
+    font-size: 2rem;
+  }
+
+  .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: var(--almond);
+    box-shadow: 0 0.5rem 1rem rgba(51, 34, 33, 0.1); /* Adds a subtle shadow below the element */
+    transition: 0.3s ease; /* Smooth transition effect over 0.3 seconds with ease-in-out timing function */
+    overflow: hidden; /* Hides content that exceeds the box dimensions, preventing scrollbars */
+  }
+
+  #check:checked ~ .navbar {
+    height: 11rem; /* height of the drop-down navbar */
+  }
+
+  .navbar ul {
+    display: block;
+    transform: translateY(
+      -50px
+    ); /* Moves the element vertically up by 50 pixels */
+    opacity: 0;
+    transition: 0.3s ease;
+  }
+
+  .navbar ul li {
+    margin: 1.5rem 0;
+    text-align: center;
+  }
+
+  #check:checked ~ .navbar ul {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/*=============== HERO SECTION ===============*/
+.main__container {
+  display: grid; /* Enables grid layout for the container */
+  grid-template-columns: 1fr 1fr; /* Defines two columns in the grid layout, the first taking 1 fraction of the available space and the second having a fixed width of 500 pixels */
+  align-items: center;
+  justify-self: center;
+  margin: 0 auto;
+  min-height: 80vh;
+  z-index: 1;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 100px;
+}
+
+.main__content h1 {
+  font-size: var(--huge-heading);
+  font-family: var(--playfair-display);
+  font-weight: 700;
+}
+
+.main__content p {
+  font-size: var(--subheading);
+  color: var(--ash-green);
+  margin-top: 20px;
+}
+
+.image__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image__container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 15px;
+}
+
+@media (max-width: 1150px) {
+  .main__container {
+    display: grid;
+    grid-template-columns: auto;
+    align-items: center;
+    justify-self: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 5%;
+  }
+
+  .main__content {
+    text-align: center;
+    margin-top: 4rem;
+  }
+
+  .main__content h1 {
+    font-size: var(--heading);
+    margin-top: 2rem;
+  }
+
+  .main__content p {
+    font-size: var(--text);
+    margin-top: 2rem;
+  }
+
+  .image__container {
+    margin-top: 50px;
+  }
+}
+
+/*=============== FOOTER ===============*/
+.flex-container {
+  display: flex;
+  justify-content: center;
+  height: 350px;
+}
+
+.flex-container > div {
+  background-color: var(--desert-sand);
+  width: 100%;
+  text-align: center;
+  align-content: center;
+  line-height: 30px;
+}
+
+.flex-container div a {
+  text-decoration: none;
+  color: var(--offwhite);
+  letter-spacing: 1px;
+}
+
+@media (max-width: 992px) {
+  .flex-container {
+    flex-direction: column;
+  }
+
+  .flex-container div {
+    padding: 5%;
+  }
+}
